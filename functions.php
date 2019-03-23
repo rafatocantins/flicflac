@@ -17,15 +17,15 @@
 
 /** Require wp-load */
 
-require_once("../wp-load.php");
 
 function flictheme_enqueue_scripts(){
    wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
    wp_enqueue_script("jquery");
-   wp_enqueue_script( 'boot', $themePath . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ),'',true );
+   wp_enqueue_script( 'boot', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ),'',true );
+   wp_enqueue_style( 'style', get_stylesheet_uri() );
 }
 
-add_action( 'wp_enqueue_scripts', 'flictheme_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'flictheme_enqueue_scripts', PHP_INT_MAX );
 
 
 
@@ -71,9 +71,26 @@ if (isset($_GET['activated']) && is_admin()){
         $estudio_page_id = wp_insert_post($estudio_page);
     }
 }
+
+// create the Blog page
+if (isset($_GET['activated']) && is_admin()){
+    $blog_page_title = 'Blog';
+    $blog_page_check = get_page_by_title($blog_page_title);
+    $blog_page = array(
+	    'post_type' => 'page',
+	    'post_title' => $blog_page_title,
+	    'post_status' => 'publish',
+	    'post_author' => 1,
+	    'post_slug' => 'estudio'
+    );
+    if(!isset($blog_page_check->ID) && !the_slug_exists('blog')){
+        $blog_page_id = wp_insert_post($blog_page);
+    }
+}
+
 // create the companhia page
 if (isset($_GET['activated']) && is_admin()){
-    $companhia_page_title = 'companhia';
+    $companhia_page_title = 'Companhia';
     $companhia_page_check = get_page_by_title($companhia_page_title);
     $companhia_page = array(
 	    'post_type' => 'page',
@@ -105,12 +122,39 @@ if (isset($_GET['activated']) && is_admin()){
     }
 }
 if (isset($_GET['activated']) && is_admin()){
-	// Set the about page
-	$about = get_page_by_title( 'about' );
-	update_option( 'page_for_posts', $about->ID );
+	// Set the blog page
+	$blog = get_page_by_title( 'blog' );
+	update_option( 'page_for_posts', $blog->ID );
 
 	// Use a static front page
 	$front_page = 2; // this is the default page created by WordPress
 	update_option( 'page_on_front', $front_page );
 	update_option( 'show_on_front', 'page' );
 }
+
+
+/** Register Menus  */
+
+function flictheme_register_menu() {
+    register_nav_menus(
+        array(
+            'top-menu' => __('Top Menu'),
+            'sidebar-menu' => __('Sidebar Menu'),
+            'footer-menu' => __('Footer Menu')
+        )
+    );
+}
+
+add_action('init', 'flictheme_register_menu');
+
+// Setting up theme logo with custom size
+
+function flictheme_logo_setup() {
+	
+	add_theme_support( 'custom-logo', array(
+		'width'       => 100,
+		'flex-width' => true,
+	) );
+
+}
+add_action( 'after_setup_theme', 'flictheme_logo_setup' );

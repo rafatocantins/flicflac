@@ -1,5 +1,5 @@
 <?php get_header(); ?> 
 
-<h1>single about</h1>
+<h1>page estudio</h1>
 
 <?php get_footer(); ?>    

@@ -15,6 +15,25 @@ wp_head();
 
 ?>
  
- <title>Blog Template for Bootstrap</title>
+ <title>Flic Flac</title>
  
 </head>
+
+<body <?php body_class(); ?>>
+    <nav class="flic-navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <?php 
+                            if ( function_exists( 'the_custom_logo' ) ) {
+                                the_custom_logo();
+                            } 
+                    ?>
+                </div>
+                <div class="col-md-8">
+                    <?php wp_nav_menu( array( 'theme_location' => 'top-menu' ) ); ?>
+                </div> 
+            </div>
+        </div>
+    </nav>
+    
