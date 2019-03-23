@@ -15,8 +15,21 @@
  * @version 1.0
  */
 
-get_header(); ?>
+ ?>
 
-<h1>Index</h1>
+<!DOCTYPE html> 
+<html <?php language_attributes(); ?>> 
+<head> 
+   <?php wp_head(); ?> 
+</head> 
 
-<?php get_footer(); ?>
+<body> 
+    <div id="app">
+        {{ this.message }}
+    </div> 
+
+    <?php wp_footer(); ?> 
+    <script>   
+    </script>
+</body> 
+</html>
