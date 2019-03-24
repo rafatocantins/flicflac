@@ -31,7 +31,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 ul.menu{
   list-style: none;
   float: right;
-  padding-top: 15px;  
+  padding-top: 20px;  
 }
 
 li.menu-item{
@@ -40,9 +40,6 @@ li.menu-item{
    font-weight: 500 
 }
 
-li.menu-item a{
-    color: black; 
-}
 
 /** logo image */
 
@@ -56,5 +53,175 @@ li.menu-item a{
     height: 100%;
 }
 
+/************************************************
+            FrontPage - Web Version
+************************************************/
+
+.hero {
+    position: fixed;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    overflow: hidden;
+ }
+ .video-overlay {
+     position: relative;
+     top: 0px;
+     left: 0px;
+     background: #000000;
+     opacity: 0.6;
+     height: auto;
+     width: 100%;
+     z-index: 1;
+ }
+ .wp-custom-header {
+    display: block;
+    overflow: hidden;
+    z-index: -999;
+ }
+
+ .wp-custom-header video {
+    min-height:100%;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    z-index: -999;
+ }
+
+ .wp-custom-header button {
+     display: none;
+ }
+
+ .hero-content {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 15px;
+    padding-right: 15px;
+    left: 50%;
+    width: 100%;
+ }
+
+ /** Prevent text display to video */
+ #wp-a11y-speak-polite{
+     display: none;
+ }
+
+ /** window block */
+ .frame_1{
+    position: absolute;
+    height: 10px;
+    z-index: -1;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: white;
+ }
+
+ .frame_2{
+    position: absolute;
+    height: 10px;
+    z-index: -1;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: white;
+ }
+
+ .frame_3{
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+    width: 10px;
+    top: 0;
+    left: 0;
+    background: white;
+ }
+
+ .frame_4{
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+    width: 10px;
+    top: 0;
+    right: 0;
+    background: white;
+ }
+
+/************************************************
+            FrontPage - SM Version
+************************************************/
+
+@media (max-width: 1150px) {
+    .hero {
+      background: url('../img/videoframe.jpg') center center / cover no-repeat;
+    }
+
+    .wp-custom-header video{
+        width: 140%;
+    }
+  
+    .video-wrap {
+      display: none;
+    }
+  } 
+
+/************************************************
+            FrontPage - MD Version
+************************************************/
+
+@media (max-width: 820px) {
+    .hero {
+      background: url('../img/videoframe.jpg') center center / cover no-repeat;
+    }
+
+    .wp-custom-header video{
+        width: 180%;
+    }
+  
+    .video-wrap {
+      display: none;
+    }
+  }
+
+/************************************************
+            FrontPage - SM Version
+************************************************/  
+
+@media (max-width: 690px) {
+    .hero {
+      background: url('../img/videoframe.jpg') center center / cover no-repeat;
+    }
+
+    .wp-custom-header video{
+        width: 290%;
+    }
+  
+    .video-wrap {
+      display: none;
+    }
+  }  
+
+/************************************************
+            FrontPage - XS Version
+************************************************/  
+
+@media (max-width: 495px) {
+    .hero {
+      background: url('../img/videoframe.jpg') center center / cover no-repeat;
+    }
+
+    .wp-custom-header video{
+        width: 320%;
+    }
+  
+    .video-wrap {
+      display: none;
+    }
+  }
 
 

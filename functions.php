@@ -22,6 +22,8 @@ function flictheme_enqueue_scripts(){
    wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css' );
    wp_enqueue_script("jquery");
    wp_enqueue_script( 'boot', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ),'',true );
+   wp_enqueue_script( 'smoothstate', get_template_directory_uri() . '/assets/js/jquery.smoothState.js', array( 'jquery'), null, true );
+   wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'smoothstate' ), '1.0.0' );
    wp_enqueue_style( 'style', get_stylesheet_uri() );
 }
 
@@ -147,6 +149,8 @@ function flictheme_register_menu() {
 
 add_action('init', 'flictheme_register_menu');
 
+
+
 // Setting up theme logo with custom size
 
 function flictheme_logo_setup() {
@@ -158,3 +162,56 @@ function flictheme_logo_setup() {
 
 }
 add_action( 'after_setup_theme', 'flictheme_logo_setup' );
+
+
+
+// Defining Settings to change in Customize
+
+function flictheme_customize_register( $wp_customize ) {
+    //All our sections, settings, and controls will be added here
+    $wp_customize->add_setting( 'header_textcolor' , array(
+        'default'   => '#000000',
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_section( 'flictheme_section_header' , array(
+        'title'      => __( 'Header', 'flictheme' ),
+        'priority'   => 30,
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
+        'label'      => __( 'Link Color', 'flictheme' ),
+        'section'    => 'flictheme_section_header',
+        'settings'   => 'header_textcolor',
+    ) ) );
+ }
+ add_action( 'customize_register', 'flictheme_customize_register' );
+
+ // Function to add to styles
+
+ function flictheme_customize_css()
+{
+    ?>
+         <style type="text/css">
+             li.menu-item a { color: <?php echo '#' . get_theme_mod('header_textcolor', '#000000'); ?>; }
+         </style>
+    <?php
+}
+add_action( 'wp_head', 'flictheme_customize_css', 10);
+
+// add video to custom-header
+add_theme_support( 'custom-header', array(
+    'video' => true
+) );
+
+add_filter( 'is_header_video_active', 'custom_video_header_pages' );
+
+function custom_video_header_pages( $active ) {
+  if( is_home() || is_front_page() ) {
+    return true;
+  }
+
+  return false;
+}
+
+

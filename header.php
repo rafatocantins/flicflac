@@ -25,13 +25,13 @@ wp_head();
             <div class="row">
                 <div class="col-md-4">
                     <?php 
-                            if ( function_exists( 'the_custom_logo' ) ) {
-                                the_custom_logo();
-                            } 
+                        if ( function_exists( 'the_custom_logo' ) ) {
+                            the_custom_logo();
+                        } 
                     ?>
                 </div>
                 <div class="col-md-8">
-                    <?php wp_nav_menu( array( 'theme_location' => 'top-menu' ) ); ?>
+                    <?php wp_nav_menu( array( 'theme_location' => 'top-menu' ) );?>
                 </div> 
             </div>
         </div>
