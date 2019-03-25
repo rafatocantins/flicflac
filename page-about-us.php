@@ -1,5 +1,12 @@
 <?php get_header(); ?> 
 
-<h1>page about</h1>
+
+<section id="about-bg">
+    <img src="<?=get_template_directory_uri() . '/assets/images/background.jpg';?>">
+</section>
+
+<section class="about">
+    <h1>hello</h1>
+</section>
 
 <?php get_footer(); ?>    

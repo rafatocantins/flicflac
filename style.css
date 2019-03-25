@@ -25,7 +25,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 ************************************************/
 
 .flic-navbar{
-    padding: 2em 0;
+  padding: 2em 0;
+  position: absolute;
+  width: 100%;
+  top: 25px;
+  left: 0;
 }
 
 ul.menu{
@@ -224,4 +228,42 @@ li.menu-item{
     }
   }
 
+/************************************************
+            AboutPage - SM Version
+************************************************/  
 
+#about-bg{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#about-bg img{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+}
+
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+#about-bg img {
+    width: 1120px;
+    left: 50%;
+    transform:translateX(-50%);   /* 50% */
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 890px) { /* Specific to this particular image */
+  #about-bg img {
+      width: 1024px;
+      left: 40%;
+      transform:translateX(-50%);   /* 50% */
+    }
+  }

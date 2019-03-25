@@ -6,10 +6,9 @@
         <?php the_custom_header_markup(); ?>
 
         <div class="row hero-content text-center">
-            <div class="col-md-12">
-                <img src="media/img/logo-white-2x.png" class="logo animated fadeInDown" />
-                <h1 class="animated fadeInDown">The leading, most customer friendly and hassle-free refund service since 2005.</h1>
-                <a href="#buy" class="use-btn animated fadeInUp">Claim now</a> <a href="#about" class="learn-btn animated fadeInUp">Learn more</a>
+            <div class="col-md-12">  
+                <h1>Estudio</h1>
+                <p>Esta é a descrição</p>
             </div>
         </div>
 
