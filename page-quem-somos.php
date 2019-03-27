@@ -1,8 +1,8 @@
 <?php get_header(); ?> 
 
 
-<section id="studio-bg" class="flic-bg">
-    <h1><?php echo get_theme_mod( 'flictheme-studio-callout-headline' ); ?></h1>
+<section id="about-bg" class="flic-bg">
+    <h1><?php echo get_theme_mod('flictheme-about-callout-headline'); ?></h1>
     <img src="<?=get_template_directory_uri() . '/assets/images/background.jpg';?>">
     <?php for( $i = 1; $i <= 4; $i++){
     ?>
@@ -12,8 +12,8 @@
 ?>
 </section>
 
-<section class="studio">
+<section class="about">
     <h1>hello</h1>
 </section>
 
-<?php get_footer(); ?>     
+<?php get_footer(); ?>    

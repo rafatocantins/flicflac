@@ -1,7 +1,7 @@
 <?php get_header(); ?> 
 
 
-<section id="about-bg" class="flic-bg">
+<section id="contact-bg" class="flic-bg">
     <h1>Welcome to my studio</h1>
     <img src="<?=get_template_directory_uri() . '/assets/images/background.jpg';?>">
     <?php for( $i = 1; $i <= 4; $i++){
@@ -12,8 +12,8 @@
 ?>
 </section>
 
-<section class="about">
+<section class="contact">
     <h1>hello</h1>
 </section>
 
-<?php get_footer(); ?>    
+<?php get_footer(); ?>  

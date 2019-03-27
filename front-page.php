@@ -7,7 +7,7 @@
 
         <div class="row hero-content text-center">
             <div class="col-md-12">  
-                <h1>Estudio</h1>
+                <h1><?php echo get_theme_mod( 'flictheme-front-callout-headline' ); ?></h1>
                 <p>Esta é a descrição</p>
             </div>
         </div>
